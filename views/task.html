@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do App</title>
+</head>
+<body style="text-align: center">
+
+  <div>
+    <h4>Update A Task</h4><br>
+    <form method="POST" action="/updateTask/{{.Task.ID}}">
+      <label style="padding: 10px">Name:</label><input type="text" id="name" name="name" placeholder={{.Task.Name}}>
+      <label style="padding: 10px">Description:</label><input type="text" id="description" name="description" placeholder={{.Task.Description}}><br><br>
+      <input type="submit" value="Submit"><br><br>
+    </form>
+  </div>
+
+</body>
+</html>

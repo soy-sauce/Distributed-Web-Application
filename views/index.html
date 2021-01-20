@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do App</title>
+</head>
+<body style="text-align: center">
+  <h1>MY TO DO LIST</h1>
+  <div>
+    <form method="POST" action="/add">
+      <h4>Add A Task</h4><br>
+      <label style="padding: 10px">Name:</label><input type="text" id="name" name="name">
+      <label style="padding: 10px">Description:</label><input type="text" id="description" name="description"><br><br>
+      <input type="submit" value="Submit"><br><br>
+    </form>
+  </div>
+  <table class="table table-striped" style="text-align: center; margin-left: auto; margin-right: auto;">
+      <thead>
+          <tr>
+              <th style="font-size:15px; padding: 50px">Name</th>
+              <th style="font-size:15px; padding: 50px">Description</th>
+          </tr>
+      </thead>
+      <tbody>
+          {{ range .Tasks }}
+          <tr>
+              <td hidden>{{.ID}}</td>
+              <td>{{.Name}}</td>
+              <td>{{.Description}}</td>
+              <td>
+                  <a href=""><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                  <a href="/updateView/{{.ID}}">Update</a>
+                  <a href="/delete/{{.ID}}">Delete</a>
+              </td>
+          </tr>
+         {{end}}
+      </tbody>
+  </table>
+
+</body>
+</html>
